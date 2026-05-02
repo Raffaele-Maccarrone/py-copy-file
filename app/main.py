@@ -6,9 +6,8 @@ def copy_file(command: str) -> None:
     file2 = files[2]
     if file1 != file2:
         try:
-            with open(file1, "r") as f:
-                content = f.read()
-            with open(file2, "a") as g:
-                g.write(content)
+            with open(file1, "r") as file_in, open(file2, "w") as file_out:
+                content = file_in.read()
+                file_out.write(content)
         except FileNotFoundError:
             pass
